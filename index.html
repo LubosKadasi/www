@@ -15,19 +15,7 @@
     
     <script>
         function foo(){
-            
-    parent.jQuery.fancybox.open([
-	{
-		src  : 'http://placekitten.com/200/300',
-		opts : {
-			caption : 'CAT'
-		}
-	}
-
-], {
-	loop : false
-});
-            
+            parent.postMessage("message to be sent", "*.dovera.sk")  
         }
 
     </script>
