@@ -8,10 +8,10 @@
 
 <body>
     
-    <img src="http://placekitten.com/200/300" alt="" onclick="foo('http://placekitten.com/200/300')">
-    
+    <img src="http://placekitten.com/200/300" alt="" onclick="foo({src:'http://placekitten.com/200/300',title:'Katze'})">
     
     <script>
+        
         function foo(src){
             parent.postMessage(src, "*")  
         }
