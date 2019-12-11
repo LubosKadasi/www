@@ -1,18 +1,35 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+
+<html lang="en">
+
 <head>
-	<title>My Iframe</title>
+    <meta charset="utf-8">
+    <title></title>
+
 </head>
-<body>
 
-<button>Button</button>
+<body style="background-color: orangered;">
 
-<script type="text/javascript">
-	document.querySelector('button').onclick = function () {
-		// parent.postMessage("message to be sent", "http://the-website-that-will-receive-the-msg.com")
-		parent.postMessage("https://placekitten.com/200/300", "*")
-	};
-</script>
+    <iframe src="https://github.kadasi.eu/index.html?v4" style="width:250px;height:350px;"></iframe> 
 
+    <script>
+        var msgListener = window.addEventListener
+                ? "addEventListener"
+                : "attachEvent";
+        var msgResend = window[msgListener];
+        var messageEvent = msgListener === "attachEvent"
+            ? "onmessage"
+            : "message";
+        msgResend(messageEvent, function (e) {
+            
+            if (e.origin !== 'https://github.kadasi.eu') return;
+            
+            if (e.data){
+                parent.postMessage(e.data, '*')
+            }	
+            
+        });
+    </script>
 </body>
+
 </html>
