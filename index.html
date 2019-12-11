@@ -8,12 +8,12 @@
 
 <body>
     
-    <img src="http://placekitten.com/200/300" alt="" onclick="foo()">
+    <img src="http://placekitten.com/200/300" alt="" onclick="foo('http://placekitten.com/200/300')">
     
     
     <script>
-        function foo(){
-            parent.postMessage("message to be sent", "*")  
+        function foo(src){
+            parent.postMessage(src, "*")  
         }
 
     </script>
